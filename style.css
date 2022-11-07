@@ -1,0 +1,40 @@
+
+body{
+    margin: 0;
+}
+nav {
+
+    background-color: #F2BE1A;
+    position: relative;
+    height: 6em;
+    width: 100%;
+}
+
+#logo {
+    width: auto;
+    height: 95%;
+    position: absolute;
+    left: 5px;
+    top: 0;
+
+}
+#title {
+    font-family: sans-serif, serif;
+    font-weight: 1000;
+    font-size: 2em;
+    position: absolute;
+    top: 30px;
+
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+
+}
+
+#breadcrumbs{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+
+}
