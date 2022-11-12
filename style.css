@@ -11,11 +11,11 @@
 body{
     margin: 0;
 }
-nav {
+nav, footer {
 
     background-color: #34516C;
     position: relative;
-    height: 8vw;
+    height: 9vw;
     width: 100%;
 }
 
@@ -54,4 +54,59 @@ a{
 }
 #breadcrumbs a:hover{
     color: #007FB0;
+}
+
+
+main{
+    width: 700px;
+    margin: auto;
+}
+
+main h2{
+    color: #F3BE00;
+}
+
+main h1 {
+    color: #EC6E0B;
+}
+
+footer div {
+    width: max-content;
+    position: absolute;
+    top: 10%;
+    color: #D0D2E0;
+    margin: 1px;
+}
+
+footer{
+    height: 12vw;
+}
+
+footer h3 {
+    margin: 0;
+}
+
+#contact {
+    left: 10px;
+}
+#location {
+    right: 10px;
+}
+@media (max-width: 715px) {
+    main{
+        width: 95vw;
+        margin: auto;
+    }
+    main h1 {
+        font-size: 4.5vw;
+    }
+    iframe {
+        width: 94vw;
+        height: 82vw;
+    }
+
+    #location, #contact {
+        font-size: 2vw;
+    }
+
 }
