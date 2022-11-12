@@ -1,12 +1,21 @@
+/*@media (max-width: 599px) {*/
+/*    body{*/
+/*        background-color: red;*/
+/*    }*/
+/*}*/
+
+* {
+    font-family: sans-serif;
+}
 
 body{
     margin: 0;
 }
 nav {
 
-    background-color: #F2BE1A;
+    background-color: #34516C;
     position: relative;
-    height: 6em;
+    height: 8vw;
     width: 100%;
 }
 
@@ -19,15 +28,15 @@ nav {
 
 }
 #title {
-    font-family: sans-serif, serif;
     font-weight: 1000;
-    font-size: 2em;
-    position: absolute;
-    top: 30px;
+    font-size: 3.5vw;
+    color: #BE1622;
 
+    position: absolute;
+    top: 2vw;
+    left: 30%;
     margin: 0;
-    width: 100%;
-    text-align: center;
+    width: min-content;
     white-space: nowrap;
 
 }
@@ -36,5 +45,13 @@ nav {
     position: absolute;
     right: 10px;
     bottom: 0;
+    font-size: 2vw;
+}
+a{
+    color: black;
+    text-decoration: none;
 
+}
+#breadcrumbs a:hover{
+    color: #007FB0;
 }
