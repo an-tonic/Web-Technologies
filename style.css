@@ -45,15 +45,16 @@ nav, footer {
     position: absolute;
     right: 10px;
     bottom: 0;
-    font-size: 2vw;
-}
-a{
-    color: black;
-    text-decoration: none;
+    font-size: 1.5vw;
 
 }
+
 #breadcrumbs a:hover{
     color: #007FB0;
+}
+#breadcrumbs a {
+    margin-left: 10px;
+    text-decoration: none;
 }
 
 
@@ -108,5 +109,35 @@ footer h3 {
     #location, #contact {
         font-size: 2vw;
     }
+    #breadcrumbs {
+        width: 5vw;
+        height: 5vw;
+        display: block;
+        border: none;
+        bottom: 20%;
+        background: linear-gradient(
+                #BC1C26, #BC1C26 20%,
+                #34506c 20%, #34506c 40%,
+                #BC1C26 40%, #BC1C26 60%,
+                #34506c 60%, #34506c 80%,
+                #BC1C26 80%, #BC1C26 100%
+        );
+    }
+    #breadcrumbs a{
+        visibility: hidden;
+        pointer-events: none;
+        position: relative;
+        bottom: -100px;
+        right: 30px;
 
+    }
+
+    #checkbox:checked + #breadcrumbs a{
+        visibility: visible;
+        transition: 1s;
+    }
+
+}
+#checkbox {
+    visibility: hidden;
 }
