@@ -162,15 +162,15 @@ footer h3 {
 }
 
 .item_img{
-    width: 250px;
-    height: 270px;
+    height: 280px;
+    width: 100%;
 }
 .item_details{
 
     background-color: #dee0ea;
     width: 250px;
-    height: 200px;
-    padding: 10px;
+    height: 250px;
+    padding: 15px;
     position: relative;
 }
 
@@ -178,9 +178,10 @@ footer h3 {
 /*    width: 100%;*/
 /*}*/
 
-/*.item_name{*/
-/*    display: block;*/
-/*}*/
+.item_name{
+    font-size: 2rem;
+    margin: 0;
+}
 
 .item_price{
     position: absolute;
