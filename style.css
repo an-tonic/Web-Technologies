@@ -1,6 +1,7 @@
 
 * {
     font-family: sans-serif;
+
 }
 
 body{
@@ -30,8 +31,6 @@ nav, footer {
     position: absolute;
     top: 2vw;
     left: 30%;
-    margin: 0;
-    width: min-content;
     white-space: nowrap;
 
 }
@@ -44,8 +43,11 @@ nav, footer {
 
 }
 
-#breadcrumbs a:hover{
+a:hover{
     color: #007FB0;
+}
+a{
+    text-decoration: none;
 }
 #breadcrumbs a {
     margin-left: 10px;
@@ -55,7 +57,7 @@ nav, footer {
 
 
 main{
-    width: 700px;
+    width: 900px;
     margin: auto;
 }
 
@@ -89,12 +91,13 @@ footer h3 {
 #location {
     right: 10px;
 }
-@media (max-width: 715px) {
+@media (max-width: 915px) {
     main{
         width: 95vw;
         margin: auto;
         margin-top: 40px;
     }
+
     main h1 {
         font-size: 4.5vw;
     }
@@ -144,3 +147,52 @@ footer h3 {
 #checkbox {
     visibility: hidden;
 }
+
+#products{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.item{
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin: 5px;
+    /*position: relative;*/
+}
+
+.item_img{
+    width: 250px;
+    height: 270px;
+}
+.item_details{
+
+    background-color: #dee0ea;
+    width: 250px;
+    height: 200px;
+    padding: 10px;
+    position: relative;
+}
+
+/*.item_description{*/
+/*    width: 100%;*/
+/*}*/
+
+/*.item_name{*/
+/*    display: block;*/
+/*}*/
+
+.item_price{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-weight: 600;
+    font-size: 150%;
+}
+
+.item_buy_button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
