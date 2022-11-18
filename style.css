@@ -1,38 +1,40 @@
 
 * {
     font-family: sans-serif;
-
 }
 
 body{
     margin: 0;
 }
-nav, footer {
 
+/*Group header and footer style*/
+nav, footer {
     background-color: #34516C;
     position: relative;
     height: 9vw;
-    width: 100%;
 }
 
 #logo {
-    width: auto;
     height: 95%;
     position: absolute;
     left: 5px;
     top: 0;
-
 }
 #title {
     font-weight: 1000;
     font-size: 3.5vw;
     color: #BE1622;
-
     position: absolute;
     top: 2vw;
     left: 30%;
-    white-space: nowrap;
+}
+/*Group breadcrumbs style*/
+a{
+    text-decoration: none;
+}
 
+a:hover{
+    color: #007FB0;
 }
 
 #breadcrumbs{
@@ -40,22 +42,18 @@ nav, footer {
     right: 10px;
     bottom: 0;
     font-size: 1.5vw;
-
 }
 
-a:hover{
-    color: #007FB0;
-}
-a{
-    text-decoration: none;
-}
 #breadcrumbs a {
     margin-left: 10px;
-    text-decoration: none;
     color: #53B7E8;
 }
+/*Hide for the hamburger menu*/
+#checkbox {
+    visibility: hidden;
+}
 
-
+/*Main body group*/
 main{
     width: 900px;
     margin: auto;
@@ -68,21 +66,22 @@ main h2{
 main h1 {
     color: #EC6E0B;
 }
+iframe {
+    width: 900px;
+    height: 750px;
+}
 
+/*Footer group*/
 footer div {
     width: max-content;
     position: absolute;
     top: 10%;
     color: #D0D2E0;
-    margin: 1px;
+    margin: 10px;
 }
 
 footer{
     height: 12vw;
-}
-
-footer h3 {
-    margin: 0;
 }
 
 #contact {
@@ -91,13 +90,76 @@ footer h3 {
 #location {
     right: 10px;
 }
+
+
+/*Items group style for products page*/
+#products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.item{
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin: 5px;
+}
+.item_img{
+    height: 280px;
+    width: 100%;
+}
+.item_details{
+    background-color: #dee0ea;
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+    position: relative;
+}
+.item_name{
+    font-size: 2rem;
+    margin: 0;
+}
+.item_price{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-weight: 600;
+    font-size: 150%;
+}
+.item_buy_button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+/*Group for an item on item.html*/
+.single_item .item{
+    width: 100%;
+    height: 1100px;
+    position: relative;
+}
+.single_item .item_img{
+    width: 100%;
+    height: auto;
+}
+.single_item .item_details{
+    width: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10%;
+}
+
+
 @media (max-width: 915px) {
+    /*Make space for hamburger menu*/
     main{
         width: 95vw;
         margin: auto;
         margin-top: 40px;
     }
-
+    /*Enlarge for readability*/
     main h1 {
         font-size: 4.5vw;
     }
@@ -109,6 +171,7 @@ footer h3 {
     #location, #contact {
         font-size: 2vw;
     }
+    /*Create hamburger*/
     #breadcrumbs {
         width: 5vw;
         height: 5vw;
@@ -142,58 +205,7 @@ footer h3 {
         left: 0;
         background-color: #BB1C27FF;
     }
-
+    .single_item .item{
+        height: 110vw;
+    }
 }
-#checkbox {
-    visibility: hidden;
-}
-
-#products{
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.item{
-    border: 2px solid grey;
-    border-radius: 5px;
-    margin: 5px;
-    /*position: relative;*/
-}
-
-.item_img{
-    height: 280px;
-    width: 100%;
-}
-.item_details{
-
-    background-color: #dee0ea;
-    width: 250px;
-    height: 250px;
-    padding: 15px;
-    position: relative;
-}
-
-/*.item_description{*/
-/*    width: 100%;*/
-/*}*/
-
-.item_name{
-    font-size: 2rem;
-    margin: 0;
-}
-
-.item_price{
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-    font-weight: 600;
-    font-size: 150%;
-}
-
-.item_buy_button{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-}
-

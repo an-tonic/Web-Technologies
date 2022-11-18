@@ -132,7 +132,7 @@ function add_items(array){
 function item_to_html(array, i){
     let item = document.createElement("div");
     item.className = "item";
-    let str = "sf"
+
     item.innerHTML = "<a href=\"item.html\" onclick=\"load_item(" + i + ")\"><img class=\"item_img\" src=\"coursework/assignment%201%20resources/" + array[4] + "\" alt=\"\"></a>\n" +
         "                 <div class=\"item_details\">\n" +
         "                     <h1 class=\"item_name\">" + array[0] + " - " + array[1] + "</h1>\n" +
