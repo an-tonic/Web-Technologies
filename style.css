@@ -10,8 +10,9 @@ body{
 /*Group header and footer style*/
 nav, footer {
     background-color: #34516C;
-    position: relative;
+    position: sticky;
     height: 9vw;
+    top: 0;
 }
 
 #logo {
