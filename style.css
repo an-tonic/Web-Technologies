@@ -188,9 +188,7 @@ footer{
     }
     #slider_menu{
         visibility: hidden;
-
         position: fixed;
-
         left: -1000px;
         padding: 7px;
         border-radius: 5px;
