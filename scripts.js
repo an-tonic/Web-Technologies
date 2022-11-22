@@ -14,6 +14,31 @@ function add_items(array){
     }
 }
 
+function add_js_objects(js_obj){
+    let counter = 0;
+    for (let key in (js_obj)){
+        //A localSession object has unneeded keys which are filtered out
+        if (js_obj.hasOwnProperty(key)){
+            counter++;
+
+            let array = js_obj[key].split(',');
+            let row  = document.createElement("tr");
+
+            row.innerHTML =
+                "           <th>" + counter + "</th>\n" +
+                "           <th><a href='item.html' onclick=\"load_item('" + array + "')\">" +
+                "                    <img class='item_img' src='coursework/assignment%201%20resources/" + array[4] + "' alt='" + array[0] + "'>" +
+                "                 </a></th>\n" +
+                "           <th>" + array[0] + "</th>\n" +
+                "           <th>" + array[3] + "</th>";
+
+            document.getElementById("sm").appendChild(row);
+
+        }
+    }
+
+}
+
 function item_to_html(array, i){
 
 
@@ -32,6 +57,7 @@ function item_to_html(array, i){
     "                </div>";
 
     document.getElementById("products").appendChild(item);
+
 }
 
 function add_to_cart(itemID, array){
