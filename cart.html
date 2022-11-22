@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
-
+    <script src="scripts.js" ></script>
 
 </head>
-<body>
+<body onload="add_js_objects(localStorage)">
 
     <nav>
         <a href="index.html"><img id="logo" src="coursework/assignment%201%20resources/logo_no_background.png" alt="logo"></a>
@@ -32,7 +32,28 @@
     </nav>
 
     <main>
+        <h1>Shopping cart</h1>
 
+        <p>The items you have added to your shopping cart are: </p>
+
+        <section class="cart_items" id="products">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>         </th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+
+                </thead>
+                <tbody id="sm">
+
+                </tbody>
+            </table>
+
+
+        </section>
 
 
     </main>
