@@ -1,5 +1,5 @@
 
-function add_items(array){
+function display_items(array){
 
     for (let i = 0; i < array.length; i++){
         // Adding jump tags that are stored in an empty array, except for second element that stores the id name
@@ -14,7 +14,7 @@ function add_items(array){
     }
 }
 
-function add_js_objects(js_obj){
+function add_items_to_cart(js_obj){
     let counter = 0;
     for (let key in (js_obj)){
         //A localSession object has unneeded keys which are filtered out
@@ -36,7 +36,6 @@ function add_js_objects(js_obj){
 
         }
     }
-
 }
 
 function item_to_html(array, i){
@@ -80,7 +79,6 @@ function add_to_cart(itemID, array){
 }
 
 function load_item(array){
-
     sessionStorage.setItem("item", array);
 }
 
