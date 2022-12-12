@@ -25,14 +25,14 @@ function add_items_to_cart(js_obj, i){
             let row  = document.createElement("tr");
 
             row.innerHTML =
-                "           <th>" + counter + "</th>\n" +
-                "           <th><a href='item.html' onclick=\"load_item('" + array + "', '" + i + "')\">" +
+                "           <td>" + counter + "</td>\n" +
+                "           <td><a href='item.html' onclick=\"load_item('" + array + "', '" + i + "')\">" +
                 "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
-                "                 </a></th>\n" +
-                "           <th>" + array[0] + "</th>\n" +
-                "           <th>" + array[3] + "</th>";
+                "                 </a></td>\n" +
+                "           <td>" + array[0] + "</td>\n" +
+                "           <td>" + array[3] + "</td>";
 
-            document.getElementById("sm").appendChild(row);
+            document.getElementById("table_body").appendChild(row);
 
         }
     }
