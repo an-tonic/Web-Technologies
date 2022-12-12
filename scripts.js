@@ -14,7 +14,7 @@ function display_items(array){
     }
 }
 
-function add_items_to_cart(js_obj){
+function add_items_to_cart(js_obj, i){
     let counter = 0;
     for (let key in (js_obj)){
         //A localSession object has unneeded keys which are filtered out
@@ -26,7 +26,7 @@ function add_items_to_cart(js_obj){
 
             row.innerHTML =
                 "           <th>" + counter + "</th>\n" +
-                "           <th><a href='item.html' onclick=\"load_item('" + array + "')\">" +
+                "           <th><a href='item.html' onclick=\"load_item('" + array + "', '" + i + "')\">" +
                 "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
                 "                 </a></th>\n" +
                 "           <th>" + array[0] + "</th>\n" +
@@ -38,33 +38,32 @@ function add_items_to_cart(js_obj){
     }
 }
 
-function item_to_html(array, i){
+function item_to_html(array, itemID){
+    let button_text = "Add to cart";
+    if ( localStorage.getItem("itemID" + itemID) !== null){
+        button_text = "✔";
+    }
 
 
     let item = document.createElement("div");
     item.className = "item";
 
-    let button_text = "Add to cart";
-    if ( localStorage.getItem("itemID" + i) !== null){
-        button_text = "✔";
-    }
-
     item.innerHTML =
-    "                 <a href='item.html' onclick=\"load_item('" + array + "')\">" +
+    "                 <a href='item.html' onclick=\"load_item('" + array + "', '" + itemID + "')\">" +
     "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
     "                 </a>" +
     "                 <div class='item_details'>" +
     "                     <h1 class='item_name'>" + array[0] + " - " + array[1] + "</h1>" +
     "                     <span class='item_description'>" + array[2] + "</span>" +
     "                     <span class='item_price'>" + array[3] + "</span>" +
-    "                     <button class='item_buy_button' id='itemID" + i + "' onclick=\"add_to_cart('itemID" + i + "','" + array + "')\">" + button_text + "</button>" +
+    "                     <button class='item_buy_button' id='itemID" + itemID + "' onclick=\"add_to_cart('" + array + "','itemID" + itemID + "')\">" + button_text + "</button>" +
     "                </div>";
 
     document.getElementById("products").appendChild(item);
 
 }
 
-function add_to_cart(itemID, array){
+function add_to_cart(array, itemID){
     let button = document.getElementById(itemID);
     if (localStorage.getItem(itemID) === null){
         alert("The item was added to the cart");
@@ -78,8 +77,10 @@ function add_to_cart(itemID, array){
     }
 }
 
-function load_item(array){
+function load_item(array, itemID){
+
     sessionStorage.setItem("item", array);
+    sessionStorage.setItem('ID', itemID);
 }
 
 
