@@ -207,9 +207,14 @@ td{
     background-color: #C7CBDA;;
 }
 
-#item_quantity_button{
+.items_quantity_button{
     background-color: white;
     text-align: center;
+    height: 1%;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 table img {
