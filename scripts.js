@@ -30,7 +30,9 @@ function add_items_to_cart(js_obj, i){
                 "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
                 "                 </a></td>\n" +
                 "           <td>" + array[0] + "</td>\n" +
-                "           <td>" + array[3] + "</td>";
+                //The "slice" will leave only the price
+                "           <td>" + array[3].slice(5) + "</td>" +
+                "<div class=\"items_quantity_button\" > <button onclick=\"change_quantity('" + counter + "', '" + i + "', '" + 1 + "')\">+</button> <div id=\"item_quantity" + counter + "\" >1</div><button onclick=\"change_quantity('" + counter + "', '" + i + "', '" + -1 + "')\">-</button></div>";
 
             document.getElementById("table_body").appendChild(row);
 
@@ -78,11 +80,38 @@ function add_to_cart(array, itemID){
 }
 
 function load_item(array, itemID){
-
     sessionStorage.setItem("item", array);
     sessionStorage.setItem('ID', itemID);
 }
 
 
 
+function clear_cart(){
+    let clear = false;
+
+    if (localStorage.length > 0){
+        clear = confirm("Are you sure you want to clear the cart?");
+    } else {
+        alert("The cart is already empty!")
+    }
+
+    if (clear){
+        localStorage.clear()
+    }
+}
+
+function change_quantity(row_ID, itemID, n){
+    let increase_button = document.getElementById("item_quantity" + row_ID);
+    if (parseInt(increase_button.innerText) > 1){
+        increase_button.innerText = (parseInt(increase_button.innerText) + parseInt(n)).toString();
+    } else {
+        let delete_item = confirm("Are you sure you want to delete this item from the cart?")
+        if (delete_item){
+            console.log("itemID" + itemID)
+            localStorage.removeItem("itemID" + itemID);
+        }
+    }
+
+
+}
 
