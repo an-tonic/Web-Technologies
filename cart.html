@@ -10,7 +10,7 @@
     <script src="scripts.js" ></script>
 
 </head>
-<body onload="display_items_in_cart()">
+<body onload="displayItemsInCart()">
 
     <nav>
         <a href="index.html"><img id="logo" src="coursework/assignment_1_resources/logo_no_background.png" alt="logo"></a>
@@ -37,10 +37,10 @@
         <p>The items you have added to your shopping cart are: </p>
 
         <div id="empty_cart">
-            <a onclick="clear_cart()" href=""><img src="coursework/assignment_1_resources/bin.png" alt="Bin image"></a>
+            <a onclick="clearCart()" href=""><img src="coursework/assignment_1_resources/bin.png" alt="Bin image"></a>
         </div>
 
-        <section class="cart_items" id="products">
+        <div class="cart_items" id="products">
             <table>
                 <thead>
                     <tr>
@@ -52,14 +52,15 @@
 
                 </thead>
                 <tbody id="table_body">
-
                 </tbody>
             </table>
 
 
-        </section>
+        </div>
 
-
+        <div id="purchase_button">
+            Purchase for <span id="purchase_price"></span> $
+        </div>
 
     </main>
 

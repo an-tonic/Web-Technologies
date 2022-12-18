@@ -11,7 +11,7 @@ body{
 }
 
 .to-top {
-    background: #BC1C26;
+    background: #577A9B;
     position: fixed;
     bottom: 16px;
     right:32px;
@@ -23,7 +23,7 @@ body{
     align-content: flex-end;
     justify-content: center;
     font-size:32px;
-    color:#1f1f1f;
+    color:#006250;
     text-decoration: none;
     z-index: 4;
 }
@@ -54,12 +54,13 @@ nav, footer {
     left: 30%;
 }
 /*Group breadcrumbs style*/
-a{
+a {
     text-decoration: none;
+    color: #007FB0;
 }
 
-a:hover{
-    color: #007FB0;
+a:hover {
+    color: #BE1622;
 }
 
 #breadcrumbs{
@@ -71,7 +72,7 @@ a:hover{
 
 #breadcrumbs a {
     margin-left: 10px;
-    color: #53B7E8;
+  
 }
 /*Hide for the hamburger menu*/
 #checkbox {
@@ -85,13 +86,15 @@ main{
     position: relative;
 }
 
-main h2{
-    color: #F3BE00;
+main h1 {
+    color: #F47721;
 }
 
-main h1 {
-    color: #EC6E0B;
+main h2{
+    color: #F2BE1A;
 }
+
+
 iframe {
     width: 900px;
     height: 750px;
@@ -101,7 +104,7 @@ iframe {
 footer div {
     width: max-content;
     position: absolute;
-    color: #D0D2E0;
+    color: #C7CBDA;
 }
 
 footer{
@@ -137,11 +140,12 @@ footer{
     width: 100%;
 }
 .item_details{
-    background-color: #dee0ea;
+    background-color: #C7CBDA;
     width: 250px;
     height: 250px;
     padding: 15px;
     position: relative;
+
 }
 .item_name{
     font-size: 2rem;
@@ -204,17 +208,36 @@ tr td:nth-last-child(2) {
     border-bottom-right-radius: 5px;
 }
 td{
-    background-color: #C7CBDA;;
+    background-color: #C7CBDA;
 }
 
 .items_quantity_button{
     background-color: white;
     text-align: center;
-    height: 1%;
+    height: 110px;
     /* position: relative; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+}
+
+.items_quantity_button button{
+    border: inherit;
+    border-radius: 5px;
+    margin: 2px;
+    margin-left: 3px;
+    height: 100%;
+}
+
+.items_quantity_button button:hover{
+    transform: scale(1.1);
+}
+
+#purchase_button{
+    font-size:2.5vw;
+    font-weight: bold;
+    
 }
 
 table img {
@@ -229,7 +252,7 @@ table img {
     top: 0;
 }
 #empty_cart:hover{
-    scale: 1.1;
+    transform: scale(1.1);
 }
 
 #empty_cart img{
@@ -263,11 +286,11 @@ table img {
         border: none;
         bottom: 20%;
         background: linear-gradient(
-                #BC1C26, #BC1C26 20%,
-                #34506c 20%, #34506c 40%,
-                #BC1C26 40%, #BC1C26 60%,
-                #34506c 60%, #34506c 80%,
-                #BC1C26 80%, #BC1C26 100%
+                #BE1622, #BE1622 20%,
+                #34516C 20%, #34516C 40%,
+                #BE1622 40%, #BE1622 60%,
+                #34516C 60%, #34516C 80%,
+                #BE1622 80%, #BE1622 100%
         );
     }
     /*The menu is out of the view until it is clicked*/
@@ -282,12 +305,13 @@ table img {
     }
 
     /*When clicked transitions the menu into the view to the left part of the viewport*/
-    #checkbox:checked + #breadcrumbs span{
+    #checkbox:checked + #breadcrumbs span {
         visibility: visible;
         transition: 0.3s;
         top: 9vw;
         left: 0;
-        background-color: #BB1C27FF;
+        background-color: #34516C;
+        margin: 2px;
     }
     /*Resize an enlarged item and its text*/
     .single_item .item{

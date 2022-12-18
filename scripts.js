@@ -1,145 +1,155 @@
 
-function display_items(array){
+//Recieves an two-dimentional array and displays the items on the product page
+function displayItems(array) {
 
-    for (let i = 0; i < array.length; i++){
-        // Adding jump tags that are stored in an empty array, except for second element that stores the id name
-        if (array[i][0] === '') {
-            let item = document.createElement("div");
-            item.setAttribute("id", array[i][1]);
-            document.getElementById("products").appendChild(item);
-        } else {
-            // Create an item box with pictures etc.
-            item_to_html(array[i], i);
-        }
-    }
-
-}
-
-function display_items_in_cart(){
-    // let counter = 0;
-    // for (let key in (js_obj)){
-    //     //A localSession object has unneeded keys which are filtered out
-    //     if (js_obj.hasOwnProperty(key)){
-    //         counter++;
-    //
-    //         let array = js_obj[key].split(',');
-    //         let row  = document.createElement("tr");
-    //
-    //         row.innerHTML =
-    //             "           <td>" + counter + "</td>\n" +
-    //             "           <td><a href='item.html' onclick=\"load_item('" + array + "', '" + i + "')\">" +
-    //             "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
-    //             "                 </a></td>\n" +
-    //             "           <td>" + array[0] + "</td>\n" +
-    //             //The "slice" will leave only the price
-    //             "           <td>" + array[3].slice(5) + "</td>" +
-    //             "<div class=\"items_quantity_button\" > <button onclick=\"change_quantity('" + counter + "', '" + i + "', '" + 1 + "')\">+</button> <div id=\"item_quantity" + counter + "\" >1</div><button onclick=\"change_quantity('" + counter + "', '" + i + "', '" + -1 + "')\">-</button></div>";
-    //
-    //         document.getElementById("table_body").appendChild(row);
-    //
-    //     }
-    // }
-
-    let keys = Object.keys(localStorage);
-
-    for (let i = 0; i < keys.length; i++){
-        let array = localStorage.getItem(keys[i]).split(',');
-        let row  = document.createElement("tr");
-        row.setAttribute('id', keys[i]);
-        row.innerHTML =
-                    "           <td>" + (i+1) + "</td>\n" +
-                    "           <td><a href='item.html' onclick=\"load_item('" + array + "', '" + keys[i] + "')\">" +
-                    "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
-                    "                 </a>" +
-                    "           </td>" +
-                    "           <td>" + array[0] + "</td>" +
-                    //The "slice" will leave only the price
-                    "           <td>" + array[3].slice(5) + "</td>" +
-                    "<div class=\"items_quantity_button\" >" +
-                    "   <button onclick=\"add_quantity('" + i + "')\">+</button> " +
-                    "       <div id=\"item_quantity" + i + "\" >1</div>" +
-                    "   <button onclick=\"decrease_quantity('" + i + "', '" + keys[i] + "')\">-</button>" +
-                    "</div>";
-
-                document.getElementById("table_body").appendChild(row);
-    }
+	for (let i = 0; i < array.length; i++) {
+		// Adding jump tags that are stored in an empty array, except for second element that stores the id name
+		if (array[i][0] === '') {
+			let items = document.getElementsByClassName('item');
+			//Adding the id to the last current displayed item
+			items[items.length - 1].setAttribute('id', array[i][1]);
+		} else {
+			// Create an item box with pictures etc.
+			itemToHtml(array[i], i);
+		}
+	}
 
 }
 
-function item_to_html(array, itemID){
+//Gets the dictionary from the local Storage and displays the items in a table
+function displayItemsInCart() {
 
-    let button_text = "Add to cart";
-    if ( localStorage.getItem("itemID" + itemID) !== null){
-        button_text = "✔";
-    }
+	let keys = Object.keys(localStorage);
+	let totalPrice = 0;
 
-    let item = document.createElement("div");
-    item.className = "item";
+	for (let i = 0; i < keys.length; i++) {
+		let array = localStorage.getItem(keys[i]).split(',');
+		let row = document.createElement("tr");
+		row.setAttribute('id', keys[i]);
 
-    item.innerHTML =
-    "                 <a href='item.html' onclick=\"load_item('" + array + "', '" + itemID + "')\">" +
-    "                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
-    "                 </a>" +
-    "                 <div class='item_details'>" +
-    "                     <h1 class='item_name'>" + array[0] + " - " + array[1] + "</h1>" +
-    "                     <span class='item_description'>" + array[2] + "</span>" +
-    "                     <span class='item_price'>" + array[3] + "</span>" +
-    "                     <button class='item_buy_button' id='itemID" + itemID + "' onclick=\"add_to_cart('" + array + "','itemID" + itemID + "')\">" + button_text + "</button>" +
-    "                </div>";
+		row.innerHTML =
+			//The number of the row should start with "1"
+			"           <td>" + (i + 1) + "</td>\n" +
+			"           <td><a href='item.html' onclick=\"loadItem('" + array + "', '" + keys[i] + "')\">" +
+			"                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
+			"                 </a>" +
+			"           </td>" +
+			"           <td>" + array[0] + "</td>" +
+			//The "slice" will leave only the price
+			"           <td>" + array[3].slice(5) + "</td>" +
+			"<div class=\"items_quantity_button\" >" +
+			"   <button onclick=\"addQuantity('" + i + "', '" + array[3].slice(7) + "')\">+</button> " +
+			"       <div id=\"item_quantity" + i + "\" >1</div>" +
+			"   <button onclick=\"decreaseQuantity('" + i + "', '" + keys[i] + "', '" + array[3].slice(7) + "')\">-</button>" +
+			"</div>";
 
-    document.getElementById("products").appendChild(item);
+		document.getElementById("table_body").appendChild(row);
+
+
+		totalPrice += parseFloat(array[3].slice(7));
+
+	}
+
+	document.getElementById('purchase_price').innerHTML += totalPrice;
 
 }
 
-function add_to_cart(array, itemID){
-    let button = document.getElementById(itemID);
-    if (localStorage.getItem(itemID) === null){
-        alert("The item was added to the cart");
-        localStorage.setItem(itemID, array);
-        button.textContent = "✔";
+//Recieves a one-dimentional array, and the ID of the item in localStorage
+function itemToHtml(array, itemID) {
 
-    } else {
-        alert("The item is removed from the cart!")
-        localStorage.removeItem(itemID);
-        button.textContent = "Add to cart";
-    }
+	let buttonText = "Add to cart";
+	//Adds the checkmark if the item has been added to the cart
+	if (localStorage.getItem("itemID" + itemID) !== null) {
+		buttonText = "✔";
+	}
+
+	let item = document.createElement("div");
+	item.className = "item";
+
+	item.innerHTML =
+		"                 <a href='item.html' onclick=\"loadItem('" + array + "', '" + itemID + "')\">" +
+		"                    <img class='item_img' src='coursework/assignment_1_resources/" + array[4] + "' alt='" + array[0] + "'>" +
+		"                 </a>" +
+		"                 <div class='item_details'>" +
+		"                     <h1 class='item_name'>" + array[0] + " - " + array[1] + "</h1>" +
+		"                     <span class='item_description'>" + array[2] + "</span>" +
+		"                     <span class='item_price'>" + array[3] + "</span>" +
+		"                     <button class='item_buy_button' id='itemID" + itemID + "' onclick=\"addToCart('" + array + "','itemID" + itemID + "')\">" + buttonText + "</button>" +
+		"                </div>";
+
+	document.getElementById("products").appendChild(item);
+
 }
 
-function load_item(array, itemID){
-    sessionStorage.setItem("item", array);
-    sessionStorage.setItem('ID', itemID);
+//Recieves a one-dimentional string array to be stored locally
+function addToCart(array, itemID) {
+	let button = document.getElementById(itemID);
+	if (localStorage.getItem(itemID) === null) {
+		alert("The item was added to the cart");
+		localStorage.setItem(itemID, array);
+		button.textContent = "✔";
+
+	//Happens when checkmark is clicked again
+	} else {
+		alert("The item is removed from the cart!");
+		localStorage.removeItem(itemID);
+		button.textContent = "Add to cart";
+	}
 }
 
-function clear_cart(){
+//Recieves a one-dimentional string array to be stored temporarily
+function loadItem(array, itemID) {
+	sessionStorage.setItem("item", array);
+	sessionStorage.setItem('ID', itemID);
+}
 
-    if (localStorage.length > 0){
-        let clear = confirm("Are you sure you want to clear the cart?");
-        if (clear){
-            localStorage.clear()
-        }
-    } else {
-        alert("The cart is already empty!")
-    }
+
+//Clears localStorage 
+function clearCart() {
+	if (localStorage.length > 0) {
+		let clear = confirm("Are you sure you want to clear the cart?");
+		if (clear) {
+			localStorage.clear();
+		}
+	} else {
+		alert("The cart is already empty!");
+	}
 
 
 }
 
-function add_quantity(row_ID){
-    let increase_button = document.getElementById("item_quantity" + row_ID);
-    increase_button.innerText = (parseInt(increase_button.innerText) + 1).toString();
+//Recieves the row's position and the item's price
+function addQuantity(rowID, price) {
+	let increaseButton = document.getElementById("item_quantity" + rowID);
+	//Increases the counter, i.e. number of items
+	increaseButton.innerText = (parseInt(increaseButton.innerText) + 1).toString();
+	changePrice(price, 1);
 }
 
-function decrease_quantity(row_ID, itemID){
-    let increase_button = document.getElementById("item_quantity" + row_ID);
-    if(increase_button.innerText === "1"){
-        let delete_item = confirm("Are you sure you want to delete this item from the cart?")
-        if (delete_item){
+////Recieves the row's position, the item's price, and items ID (in case it is needed to be deleted)
+function decreaseQuantity(rowID, itemID, price) {
+	let increaseButton = document.getElementById("item_quantity" + rowID);
+	if (increaseButton.innerText === "1") {
+		let deleteItemQuestion = confirm("Are you sure you want to delete this item from the cart?");
+		if (deleteItemQuestion) {
+			localStorage.removeItem(itemID);
+			document.getElementById(itemID).innerHTML = "";
+			changePrice(price, -1);
+		}
 
-            localStorage.removeItem(itemID);
-            document.getElementById(itemID).innerHTML = "";
-        }
+	} else {
+		increaseButton.innerText = (parseInt(increaseButton.innerText) - 1).toString();
+		changePrice(price, -1);
+	}
+}
 
-    }
-    increase_button.innerText = (parseInt(increase_button.innerText) - 1).toString();
+//Recieves a price change and !the "directon" - if negative one the price decreases, if positive one - increases
+function changePrice(price, changePriceDirecton) {
 
+	//The price and the price on the page should be parsed to perform sumation
+	let purchasePrice = parseFloat(document.getElementById('purchase_price').innerHTML);
+	purchasePrice += parseFloat(price) * changePriceDirecton;
+
+	//The final price is fixed at two decimal places.
+	document.getElementById('purchase_price').innerHTML = purchasePrice.toFixed(2);
 }

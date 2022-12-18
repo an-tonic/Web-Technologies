@@ -1,7 +1,8 @@
 let items_array = [
-    ['','hoodie','','',''],
+    
     ['UCLan Hoodie','Purple','cotton authentic character and practicality are combined in this comfy  warm and luxury hoodie for students that goes with everything to create casual looks',' Only $39.99','images/items/hoodies/hoodie (1).jpg'],
-    ['UCLan Hoodie','Light Blue','cotton authentic character and practicality are combined in this comfy  warm and luxury hoodie for students that goes with everything to create casual looks',' Only $39.99','images/items/hoodies/hoodie (2).jpg'],
+    ['', 'hoodie', '', '', ''],
+    ['UCLan Hoodie', 'Light Blue', 'cotton authentic character and practicality are combined in this comfy  warm and luxury hoodie for students that goes with everything to create casual looks', ' Only $39.99', 'images/items/hoodies/hoodie (2).jpg'],
     ['UCLan Hoodie','Green','cotton authentic character and practicality are combined in this comfy  warm and luxury hoodie for students that goes with everything to create casual looks',' Only $39.99','images/items/hoodies/hoodie (3).jpg'],
     ['UCLan Hoodie','Dark Grey','cotton authentic character and practicality are combined in this comfy  warm and luxury hoodie for students that goes with everything to create casual looks',' Only $39.99','images/items/hoodies/hoodie (4).jpg'],
     ['UCLan Hoodie','Black','cotton authentic character and practicality are combined in this comfy  warm and luxury hoodie for students that goes with everything to create casual looks',' Only $39.99','images/items/hoodies/hoodie (5).jpg'],
